@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tip Calculator</title>
+</head>
+<body>
+    <h1>Tip Calculator</h1>
+
+    <script>
+        // Function to verify valid service quality
+        function isValidServiceQuality(serviceQuality) {
+            return serviceQuality === "great" || serviceQuality === "ok" || serviceQuality === "poor";
+        }
+
+        // Function to verify valid service amount
+        function isValidServiceAmount(serviceAmount) {
+            return !isNaN(serviceAmount) && serviceAmount >= 5.00 && serviceAmount <= 500.00;
+        }
+
+        // Function to calculate the tip amount
+        function calculateTip(serviceAmount, serviceQuality) {
+            let tipPercentage = 0;
+
+            switch (serviceQuality) {
+                case "great":
+                    tipPercentage = 0.20;
+                    break;
+                case "ok":
+                    tipPercentage = 0.15;
+                    break;
+                case "poor":
+                    tipPercentage = 0.10;
+                    break;
+            }
+
+            const tipAmount = serviceAmount * tipPercentage;
+            return tipAmount;
+        }
+
+        // Prompt the user for service amount
+        const serviceAmount = parseFloat(prompt("Enter the dollar amount of the service:"));
+
+        // Verify valid service amount
+        if (!isValidServiceAmount(serviceAmount)) {
+            alert("Invalid service amount. Please enter a value between $5.00 and $500.00.");
+        } else {
+            // Prompt the user for service quality
+            const serviceQuality = prompt("How was the service quality? (great, ok, or poor):");
+
+            // Verify valid service quality
+            if (!isValidServiceQuality(serviceQuality)) {
+                alert("Invalid service quality. Please enter 'great', 'ok', or 'poor'.");
+            } else {
+                // Calculate the tip
+                const tip = calculateTip(serviceAmount, serviceQuality);
+
+                // Display the result
+                alert(`Service amount: $${serviceAmount.toFixed(2)}\nRecommended tip: $${tip.toFixed(2)}\nBased on service quality: ${serviceQuality}`);
+            }
+        }
+    </script>
+</body>
+</html>
