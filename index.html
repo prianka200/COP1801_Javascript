@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Dog Objects</title>
+</head>
+<body>
+    <script>
+        // Your JavaScript code here
+        var myDog = {
+            name: "Astro",
+            barkDescription: "not scary",
+            tvShow: "The Jetsons",
+            character: "Great Dane",
+            personality: "I sound very intimidating because of my size",
+            mySound: "I sound very intimidating because of my size",
+        };
+
+        console.log(`Hello, my name is ${myDog.name}, when I bark I am ${myDog.barkDescription}. I starred in the TV show ${myDog.tvShow}. My character was a ${myDog.character}. I was the family dog in a cartoon about a family in the future.`);
+
+        function Dog(name, barkDescription, tvShow, character, personality, canTalk) {
+            this.name = name;
+            this.barkDescription = barkDescription;
+            this.tvShow = tvShow;
+            this.character = character;
+            this.personality = personality;
+            this.mySound = personality;
+            this.canTalk = canTalk;
+
+            this.myGreeting = function() {
+                console.log(`Hello, my name is ${this.name}, when I bark I am ${this.barkDescription}. I starred in the TV show ${this.tvShow}. My character was a ${this.character}. I was the family dog in a cartoon about a family in the future.`);
+            };
+        }
+
+        var myDogConst = new Dog("Astro", "not scary", "The Jetsons", "Great Dane", "I sound very intimidating because of my size", true);
+
+        myDogConst.myGreeting();
+    </script>
+</body>
+</html>
