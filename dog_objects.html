@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Dog Objects</title>
+</head>
+<body>
+    <script>
+        function Dog(name, barkDescription, tvShow, character, personality, canTalk) {
+            this.name = name;
+            this.barkDescription = barkDescription;
+            this.tvShow = tvShow;
+            this.character = character;
+            this.personality = personality;
+            this.mySound = personality;
+            this.canTalk = canTalk;
+
+            this.myGreeting = function() {
+                if (this.canTalk) {
+                    return `Hello, my name is ${this.name}, when I bark I am ${this.barkDescription}. I starred in the TV show ${this.tvShow}. My character was a ${this.character}. I can talk!`;
+                } else {
+                    return `Hello, my name is ${this.name}, when I bark I am ${this.barkDescription}. I starred in the TV show ${this.tvShow}. My character was a ${this.character}. I cannot talk.`;
+                }
+            };
+        }
+
+        var myDogConst1 = new Dog("Astro", "not scary", "The Jetsons", "Great Dane", "I sound very intimidating because of my size", true);
+        var myDogConst2 = new Dog("Scooby-Doo", "jumpy", "Scooby-Doo, Where Are You!", "Great Dane", "I love Scooby Snacks", true);
+
+        var dogObjects = [myDogConst1, myDogConst2];
+
+        for (var dogIndex in dogObjects) {
+            for (var prop in dogObjects[dogIndex]) {
+                document.write(`<b>${prop}:</b> ${dogObjects[dogIndex][prop]}<br>`);
+            }
+            document.write("<br>");
+        }
+
+        var userInput = prompt("Select one of the dogs by typing in one of the dog name (Astro or Scooby-Doo):");
+
+        var selectedDog = null;
+
+        for (var i = 0; i < dogObjects.length; i++) {
+            if (userInput === dogObjects[i].name) {d
+                selectedDog = dogObjects[i];
+                break;
+            }
+        }
+
+        if (selectedDog) {
+            document.write(selectedDog.myGreeting());
+        } else {
+            document.write("Error: The selected dog doesn't exist.");
+        }
+    </script>
+</body>
+</html>
